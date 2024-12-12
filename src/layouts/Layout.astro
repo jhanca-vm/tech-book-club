@@ -1,0 +1,98 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tech book club</title>
+    <link rel="icon" href="/favicon.png" />
+    <link
+      rel="preload"
+      href="/fonts/martian-mono.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/inter.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-display: fallback;
+    font-family: 'Martian Mono';
+    font-weight: 100 800;
+    src: url('/fonts/martian-mono.woff2') format('woff2-variations');
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: 'Inter';
+    font-weight: 100 900;
+    src: url('/fonts/inter.woff2') format('woff2-variations');
+  }
+
+  :root {
+    --font-mono: 'Martian Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+    --color-neutral-0: oklch(1 0 0);
+    --color-neutral-100: oklch(0.9734 0.006 43.34);
+    --color-neutral-700: oklch(0.4179 0.0331 219.71);
+    --color-neutral-900: oklch(0.251 0.0408 222.78);
+    --color-salmon-50: oklch(0.9763 0.0134 53.36);
+    --color-salmon-100: oklch(0.9321 0.039362357664372565 52.366042036542254);
+    --color-salmon-500: oklch(0.7959 0.1276 49.89);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    font: 25% / 1.4 var(--font-sans);
+    letter-spacing: -0.5px;
+    min-width: 375px;
+  }
+
+  body {
+    background: var(--color-neutral-0);
+    color: var(--color-neutral-700);
+    font-size: 5rem;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  :is(a:hover, a:focus-visible, button:hover, button:focus-visible) {
+    background-image: linear-gradient(
+      90deg in oklab,
+      var(--color-salmon-100),
+      var(--color-salmon-50)
+    );
+  }
+
+  :is(a:focus-visible, button:focus-visible) {
+    outline: none;
+    box-shadow:
+      0 0 0 3px var(--color-neutral-0),
+      0 0 0 5px var(--color-neutral-700);
+  }
+
+  .container {
+    margin-inline: auto;
+    max-width: 292.5rem;
+  }
+</style>

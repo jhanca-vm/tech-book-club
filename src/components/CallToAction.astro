@@ -1,0 +1,59 @@
+---
+import IconArrowDown from './IconArrowDown.astro'
+---
+
+<a href="#membership-options">
+  <span>Review membership options</span>
+  <IconArrowDown />
+</a>
+<figure>
+  <img src="/images/avatars.webp" alt="" width="165" height="60" />
+  <figcaption>
+    <div>
+      {
+        Array.from({ length: 5 }, () => (
+          <img src="/images/star.svg" alt="" width="24" height="24" />
+        ))
+      }
+    </div>
+    200+ developers joined already
+  </figcaption>
+</figure>
+
+<style>
+  a {
+    align-items: center;
+    background-color: var(--color-salmon-50);
+    border: 2px solid currentColor;
+    border-radius: 2rem;
+    color: var(--color-neutral-900);
+    display: flex;
+    font: 600 4rem / 1.3 var(--font-mono);
+    gap: 5rem;
+    height: 16rem;
+    justify-content: center;
+    letter-spacing: -1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 85.75rem;
+  }
+
+  figure {
+    align-items: center;
+    display: flex;
+    font: 3.5rem / 1.2 var(--font-mono);
+    gap: 3rem;
+    letter-spacing: -1px;
+    margin-top: 5rem;
+    & > img {
+      width: 27.5rem;
+    }
+  }
+
+  @container (width >= 540px) {
+    a {
+      font-size: 4.5rem;
+      width: 95rem;
+    }
+  }
+</style>

@@ -1,0 +1,126 @@
+---
+import CallToAction from './CallToAction.astro'
+import Glow from './Glow.astro'
+---
+
+<section>
+  <div class="container">
+    <img src="/images/logo.webp" alt="Tech book club" width="285" height="54" />
+    <div>
+      <h1>Join the ultimate tech book club</h1>
+      <p>
+        Turn your reading time into learning time with fellow tech enthusiasts.
+        Get curated recommendations, join vibrant discussions, and level up your
+        skills one chapter at a time.
+      </p>
+      <CallToAction />
+    </div>
+    <picture>
+      <source
+        srcset="/images/hero-lg.webp"
+        media="(width >= 1200px)"
+        width="804"
+        height="909"
+      />
+      <source
+        srcset="/images/hero-xl.webp"
+        media="(width >= 640px)"
+        width="1408"
+        height="1596"
+      />
+      <img src="/images/hero.webp" alt="" width="686" height="744" />
+    </picture>
+  </div>
+  <Glow />
+</section>
+
+<style>
+  section {
+    background:
+      url('/images/grid.webp') no-repeat,
+      var(--color-neutral-100);
+    overflow: hidden;
+    padding: 6rem 4rem 20rem;
+    position: relative;
+    @media (width >= 540px) {
+      padding: 8rem 8rem 20rem;
+    }
+    .glow {
+      @media (width >= 540px) {
+        bottom: -300px;
+        right: -342px;
+      }
+      @media (width >= 1200px) {
+        bottom: -226px;
+        right: -472px;
+      }
+    }
+  }
+
+  h1 {
+    background: linear-gradient(
+      107deg in oklab,
+      var(--color-salmon-500) -11.37%,
+      var(--color-neutral-900) 61.84%
+    );
+    background-clip: text;
+    color: transparent;
+    font: 700 9.5rem / 1.2 var(--font-mono);
+    letter-spacing: -2px;
+    text-wrap: pretty;
+  }
+
+  p {
+    margin-block: 6rem 8rem;
+  }
+
+  picture {
+    display: flex;
+    @media (width < 1200px) {
+      margin-top: 16rem;
+    }
+    img {
+      border-radius: 2rem;
+      width: 100%;
+      @media (width >= 640px) {
+        border-radius: 4rem;
+      }
+      @media (width >= 1200px) {
+        border-radius: 3rem;
+      }
+    }
+  }
+
+  .container {
+    container-type: inline-size;
+    position: relative;
+    z-index: 1;
+    @media (width >= 1200px) {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 136rem 134rem;
+      justify-content: space-between;
+    }
+    & > img {
+      grid-column-end: span 2;
+      margin-bottom: 12rem;
+      width: 48.25rem;
+    }
+  }
+
+  @container (width >= 540px) {
+    h1 {
+      font-size: 15.5rem;
+    }
+  }
+
+  @container (width >= 900px) {
+    p {
+      text-wrap: balance;
+    }
+
+    .container > img {
+      margin-bottom: 16rem;
+    }
+  }
+</style>
