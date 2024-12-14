@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets'
+import ellipse from '../assets/ellipse.svg'
+import feature1 from '../assets/feature-1.webp'
+import feature1Lg from '../assets/feature-1-lg.webp'
+import feature1Xl from '../assets/feature-1-xl.webp'
+import feature2 from '../assets/feature-2.webp'
+import feature2Lg from '../assets/feature-2-lg.webp'
+import feature2Xl from '../assets/feature-2-xl.webp'
+import technologies from '../assets/technologies.svg'
+import List from './List.astro'
+import Source from './Source.astro'
+import Steps from './Steps.astro'
+---
+
+<section>
+  <div class="container">
+    <article>
+      <div>
+        <h2>Read together, grow together</h2>
+        <List
+          items={[
+            'Monthly curated tech reads selected by industry experts',
+            'Virtual and in-person meetups for deep-dive discussions',
+            'Early access to new tech book releases',
+            'Author Q&A sessions with tech thought leaders'
+          ]}
+        />
+      </div>
+      <picture>
+        <Source image={feature1Lg} media="(width >= 1280px)" />
+        <Source image={feature1Xl} media="(width >= 640px)" />
+        <Image src={feature1} alt="" />
+      </picture>
+    </article>
+    <article>
+      <div>
+        <h2>
+          Not your average book <span>club<Image src={ellipse} alt="" /></span>
+        </h2>
+        <p>
+          Connect with a community that speaks your language - from <b>Python</b
+          > to <b>TypeScript</b> and everything in between. Our discussions blend
+          technical depth with practical applications.
+        </p>
+      </div>
+      <picture>
+        <Source image={feature2Lg} media="(width >= 1280px)" />
+        <Source image={feature2Xl} media="(width >= 640px)" />
+        <Image src={feature2} alt="" />
+      </picture>
+      <Image src={technologies} alt="" />
+    </article>
+    <Steps />
+  </div>
+</section>
+
+<style>
+  article {
+    display: grid;
+    gap: 10rem;
+    margin-block: 16rem;
+    position: relative;
+    @media (width >= 540px) {
+      margin-block: 20rem;
+    }
+    & > img {
+      bottom: 8rem;
+      inset-inline: 0;
+      margin-inline: auto;
+      position: absolute;
+      width: 30rem;
+    }
+  }
+
+  .container {
+    container: features / inline-size;
+  }
+
+  @container (width >= 284rem) {
+    article {
+      align-items: center;
+      justify-content: space-between;
+      margin-block: 30rem;
+      &:first-child {
+        grid-template-columns: 140rem 134rem;
+        picture {
+          grid-row-start: 1;
+          grid-column-start: 1;
+        }
+      }
+      &:nth-child(2) {
+        grid-template-columns: 134rem 140rem;
+      }
+    }
+  }
+
+  @container (width < 284rem) {
+    article > img {
+      display: none;
+    }
+  }
+</style>

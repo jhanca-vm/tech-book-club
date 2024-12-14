@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets'
+import check from '../assets/check.svg'
+
+interface Props {
+  items: string[]
+}
+
+const { items } = Astro.props
+---
+
+<ul>
+  {
+    items.map(item => (
+      <li>
+        <Image src={check} alt="" />
+        {item}
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    display: grid;
+    gap: 4rem;
+    list-style: none;
+    img {
+      width: 7rem;
+    }
+  }
+
+  li {
+    display: flex;
+    gap: 3.5rem;
+  }
+
+  @container (width >= 284rem) {
+    ul {
+      max-width: 108rem;
+    }
+  }
+</style>

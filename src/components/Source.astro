@@ -1,0 +1,15 @@
+---
+interface Props {
+  image: ImageMetadata
+  media: string
+}
+
+const { image, media } = Astro.props
+---
+
+<source
+  srcset={image.src}
+  media={media}
+  width={image.width}
+  height={image.height}
+/>
