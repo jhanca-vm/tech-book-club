@@ -1,0 +1,125 @@
+---
+import Glow from './Glow.astro'
+import List from './List.astro'
+---
+
+<section>
+  <div class="container">
+    <h2 id="membership-options">Membership options</h2>
+    <div class="plans">
+      <article>
+        <h3>Starter</h3>
+        <p><b>$19</b> /month</p>
+        <hr />
+        <List items={['1 book/month', 'Online forums']} />
+      </article>
+      <article>
+        <div>
+          <h3>Pro</h3>
+          <p><b>$29</b> /month</p>
+          <hr />
+          <List items={['2 books/month', 'Virtual meetups']} />
+        </div>
+        <Glow />
+      </article>
+      <article>
+        <h3>Enterprise</h3>
+        <p><b>Custom</b></p>
+        <hr />
+        <List items={['Team access', 'Private sessions']} />
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    scroll-margin-top: 8rem;
+  }
+
+  article {
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 2rem;
+    display: grid;
+    gap: 6rem;
+    padding: 6rem;
+    &:nth-child(2) {
+      background: var(--color-neutral-100);
+      overflow: hidden;
+      position: relative;
+      .glow {
+        left: -176px;
+        top: -90px;
+      }
+    }
+    div {
+      display: inherit;
+      gap: inherit;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  h3,
+  b {
+    color: var(--color-neutral-900);
+    letter-spacing: -1px;
+  }
+
+  h3 {
+    font: 600 6rem / 1.1 var(--font-mono);
+  }
+
+  b {
+    font: 600 8.5rem / 1.3 var(--font-mono);
+    vertical-align: middle;
+  }
+
+  hr {
+    border-color: var(--color-neutral-200);
+    border-top: none;
+  }
+
+  .container {
+    container-type: inline-size;
+  }
+
+  .plans {
+    align-items: center;
+    display: grid;
+    gap: 6rem;
+    margin-inline: auto;
+    max-width: 242.5rem;
+    @media (width >= 540px) {
+      margin-top: 10rem;
+    }
+  }
+
+  @container (width >= 134rem) {
+    .plans {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @container (width >= 214rem) {
+    h2 {
+      scroll-margin-top: 20rem;
+      text-align: center;
+    }
+
+    article:nth-child(2) {
+      padding-block: 10rem;
+    }
+
+    :is(.plans) {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 16rem;
+    }
+  }
+
+  @container (width >= 284rem) {
+    h2 {
+      margin-top: 30rem;
+    }
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import IconArrowDown from './IconArrowDown.astro'
+import Rating from './Rating.astro'
 ---
 
 <a href="#membership-options">
@@ -9,13 +10,7 @@ import IconArrowDown from './IconArrowDown.astro'
 <figure>
   <img src="/images/avatars.webp" alt="" width="165" height="60" />
   <figcaption>
-    <div>
-      {
-        Array.from({ length: 5 }, () => (
-          <img src="/images/star.svg" alt="" width="24" height="24" />
-        ))
-      }
-    </div>
+    <Rating />
     200+ developers joined already
   </figcaption>
 </figure>

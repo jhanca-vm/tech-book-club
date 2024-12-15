@@ -17,6 +17,7 @@
   --font-sans: 'Inter', sans-serif;
   --color-neutral-0: oklch(1 0 0);
   --color-neutral-100: oklch(0.9734 0.006 43.34);
+  --color-neutral-200: oklch(0.9131 0.0061 43.33);
   --color-neutral-700: oklch(0.4179 0.0331 219.71);
   --color-neutral-900: oklch(0.251 0.0408 222.78);
   --color-salmon-50: oklch(0.9763 0.0134 53.36);
@@ -34,6 +35,7 @@ html {
   font: 25% / 1.4 var(--font-sans);
   letter-spacing: -0.5px;
   min-width: 375px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -90,7 +92,7 @@ picture {
   }
 }
 
-:is(a:hover, a:focus-visible, button:hover, button:focus-visible) {
+:is(a:hover, a:focus-visible) {
   background-image: linear-gradient(
     90deg in oklab,
     var(--color-salmon-100),
@@ -98,7 +100,7 @@ picture {
   );
 }
 
-:is(a:focus-visible, button:focus-visible) {
+:is(a:focus-visible) {
   outline: none;
   box-shadow:
     0 0 0 3px var(--color-neutral-0),
@@ -110,7 +112,7 @@ picture {
   max-width: 292.5rem;
 }
 
-@container features (width >= 540px) {
+@container (width >= 540px) {
   div h2 {
     font-size: 12.5rem;
     margin-bottom: 8.5rem;

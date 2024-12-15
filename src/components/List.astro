@@ -1,6 +1,5 @@
 ---
-import { Image } from 'astro:assets'
-import check from '../assets/check.svg'
+import IconCheck from './IconCheck.astro'
 
 interface Props {
   items: string[]
@@ -13,7 +12,7 @@ const { items } = Astro.props
   {
     items.map(item => (
       <li>
-        <Image src={check} alt="" />
+        <IconCheck />
         {item}
       </li>
     ))
@@ -25,14 +24,13 @@ const { items } = Astro.props
     display: grid;
     gap: 4rem;
     list-style: none;
-    img {
-      width: 7rem;
-    }
   }
 
   li {
-    display: flex;
+    align-items: center;
+    display: grid;
     gap: 3.5rem;
+    grid-template-columns: auto 1fr;
   }
 
   @container (width >= 284rem) {
