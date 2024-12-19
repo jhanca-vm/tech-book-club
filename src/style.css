@@ -74,6 +74,11 @@ b {
   font-weight: 600;
 }
 
+hr {
+  border-color: var(--color-neutral-200);
+  border-top: none;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -108,6 +113,7 @@ picture {
 }
 
 .container {
+  container-type: inline-size;
   margin-inline: auto;
   max-width: 292.5rem;
 }

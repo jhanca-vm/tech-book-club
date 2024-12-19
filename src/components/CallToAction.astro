@@ -1,9 +1,15 @@
 ---
 import IconArrowDown from './IconArrowDown.astro'
 import Rating from './Rating.astro'
+
+interface Props {
+  outline?: boolean
+}
+
+const { outline } = Astro.props
 ---
 
-<a href="#membership-options">
+<a class={outline ? 'outline' : undefined} href="#membership-options">
   <span>Review membership options</span>
   <IconArrowDown />
 </a>
@@ -18,7 +24,7 @@ import Rating from './Rating.astro'
 <style>
   a {
     align-items: center;
-    background-color: var(--color-salmon-50);
+    background: var(--color-salmon-50);
     border: 2px solid currentColor;
     border-radius: 2rem;
     color: var(--color-neutral-900);
@@ -31,6 +37,26 @@ import Rating from './Rating.astro'
     text-decoration: none;
     text-transform: uppercase;
     width: 85.75rem;
+    &.outline {
+      background: transparent;
+      color: var(--color-neutral-0);
+      &:hover,
+      &:focus-visible {
+        background-image: linear-gradient(
+          90deg in oklab,
+          var(--color-neutral-700),
+          var(--color-neutral-900)
+        );
+      }
+      &:focus-visible {
+        box-shadow:
+          0 0 0 3px var(--color-neutral-900),
+          0 0 0 5px var(--color-neutral-200);
+      }
+      svg {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   figure {

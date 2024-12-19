@@ -1,13 +1,13 @@
 {
   "name": "tech-book-club",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.0.4",
+    "astro": "^5.1.0",
     "sharp": "^0.33.5"
   }
 }
